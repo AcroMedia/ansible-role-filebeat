@@ -36,8 +36,9 @@ Whether to enable Elasticsearch output, and which hosts to send output to.
     filebeat_output_logstash_enabled: true
     filebeat_output_logstash_hosts:
       - "localhost:5000"
+    filebeat_output_logstash_index_name: "filebeat"
 
-Whether to enable Logstash output, and which hosts to send output to.
+Whether to enable Logstash output, which hosts to send output to, and the root name of the index when it arrives at logstash.
 
     filebeat_enable_logging: false
     filebeat_log_level: warning
@@ -74,13 +75,13 @@ None.
 ## Example Playbook
 
     - hosts: logs
-    
+
     - name: Set the java_packages variable (Debian/Ubuntu).
       set_fact:
         java_packages:
           - openjdk-8-jdk
       when: ansible_os_family == 'Debian'
-    
+
       roles:
         - geerlingguy.java
         - geerlingguy.elasticsearch
