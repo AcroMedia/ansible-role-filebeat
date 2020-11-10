@@ -11,10 +11,6 @@ on:
   schedule:
     - cron: "30 2 * * 1"
 
-defaults:
-  run:
-    working-directory: '"${{ github.repository }}"
-
 jobs:
 
   lint:
